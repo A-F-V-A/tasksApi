@@ -6,7 +6,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddDbContext<TaskContext>(p => p.UseInMemoryDatabase("TaskDB"));
-builder.Services.AddSqlServer<TaskContext>("");
+builder.Services.AddSqlServer<TaskContext>(builder.Configuration.GetConnectionString("dbConnection"));
 
 var app = builder.Build();
 
